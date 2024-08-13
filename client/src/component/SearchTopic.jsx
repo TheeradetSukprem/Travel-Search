@@ -6,14 +6,14 @@ export function SearchTopic() {
     const [searchTopic, setSearchTopic]  = useState("");
 
     const getTopicData = async () => {
-        try {
-            const topicDataFromServer = await axios.get(`https://travel-search-server.vercel.app/trips?keywords=${searchTopic}`);
-            setTopics(topicDataFromServer.data.data);
-            console.log(setTopics);
-        } catch (error) {
-            console.error("Error fetching topics:", error);
-        }
-    };
+    try {
+        const response = await axios.get(`https://travel-search-server.vercel.app/trips?keywords=${searchTopic}`);
+        setTopics(response.data.data);
+        console.log(response.data.data); // Log the actual data
+    } catch (error) {
+        console.error("Error fetching topics:", error);
+    }
+};
 
     useEffect(() => {
         if (searchTopic) {
