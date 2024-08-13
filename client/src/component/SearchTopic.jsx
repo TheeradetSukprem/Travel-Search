@@ -7,7 +7,7 @@ export function SearchTopic() {
 
     const getTopicData = async () => {
         try {
-            const topicDataFromServer = await axios.get(`http://localhost:4001/trips?keywords=${searchTopic}`);
+            const topicDataFromServer = await axios.get(`https://travel-search-server.vercel.app/trips?keywords=${searchTopic}`);
             setTopics(topicDataFromServer.data.data);
             console.log(setTopics);
         } catch (error) {
