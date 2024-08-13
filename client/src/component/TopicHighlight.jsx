@@ -8,7 +8,7 @@ function TopicHighlight() {
 
   const getTopicData = async () => {
     try {
-      const result = await axios.get(`http://localhost:4001/trips?keywords=${searchTopic}`);
+      const result = await axios.get(`https://travel-search-server.vercel.app/trips?keywords=${searchTopic}`);
       setTopics(result.data.data); 
     } catch (error) {
       console.error("Error fetching topics:", error);
